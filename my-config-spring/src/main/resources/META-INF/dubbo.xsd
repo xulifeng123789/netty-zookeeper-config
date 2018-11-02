@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://dubbo.apache.org/schema/dubbo"
+            targetNamespace="http://dubbo.apache.org/schema/dubbo" elementFormDefault="qualified">
+    <xsd:complexType name="reference">
+        <xsd:attribute name="id" type="xsd:ID">
+            <xsd:annotation>
+                <xsd:documentation> <![CDATA[ The unique identifier for a bean. ]]> </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="interface" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation> <![CDATA[ The price for a bean. ]]> </xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+    <xsd:complexType name="registryType">
+        <xsd:attribute name="address" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation><![CDATA[ The registry address. ]]></xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+    <xsd:complexType name="serviceType">
+                <xsd:attribute name="interface" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            <![CDATA[ Defines the interface to advertise for this service in the service registry. ]]>
+                        </xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="ref" type="xsd:string">
+                    <xsd:annotation>
+                        <xsd:documentation>
+                            <![CDATA[ The service implementation instance bean id. ]]></xsd:documentation>
+                    </xsd:annotation>
+                </xsd:attribute>
+    </xsd:complexType>
+    <xsd:complexType name="protocolType">
+        <xsd:attribute name="port" type="xsd:string">
+            <xsd:annotation>
+                <xsd:documentation><![CDATA[ The service port. ]]></xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+    <xsd:element name="reference" type="reference">
+        <xsd:annotation>
+            <xsd:documentation><![CDATA[ The service config ]]></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="registry" type="registryType">
+        <xsd:annotation>
+            <xsd:documentation><![CDATA[ The registry config ]]></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="service" type="serviceType">
+
+        <xsd:annotation>
+            <xsd:documentation><![CDATA[ Export service config ]]></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="protocol" type="protocolType">
+        <xsd:annotation>
+            <xsd:documentation><![CDATA[ Service provider config ]]></xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+</xsd:schema>
